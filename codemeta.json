@@ -1,0 +1,45 @@
+{
+  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@type": "SoftwareSourceCode",
+  "name": "Cosmic-Brilliance",
+  "description": "A collection of advanced AI and physics-informed neural network implementations exploring cosmic phenomena, AGI development, and theoretical physics applications.",
+  "identifier": "https://github.com/OneFineStarstuff/Cosmic-Brilliance",
+  "codeRepository": "https://github.com/OneFineStarstuff/Cosmic-Brilliance",
+  "license": "https://spdx.org/licenses/MIT",
+  "version": "1.0.0",
+  "author": [
+    {
+      "@type": "Person",
+      "givenName": "𝐎𝐧𝐞 𝐅𝐢𝐧𝐞 𝐒𝐭𝐚𝐫𝐬𝐭𝐮𝐟𝐟",
+      "familyName": "OneFineStarstuff"
+    }
+  ],
+  "maintainer": [
+    {
+      "@type": "Person",
+      "givenName": "𝐎𝐧𝐞 𝐅𝐢𝐧𝐞 𝐒𝐭𝐚𝐫𝐬𝐭𝐮𝐟𝐟",
+      "familyName": "OneFineStarstuff"
+    }
+  ],
+  "programmingLanguage": [
+    "Python",
+    "Jupyter Notebook"
+  ],
+  "runtimePlatform": [
+    "Python 3.7+",
+    "PyTorch",
+    "TensorFlow",
+    "Jupyter"
+  ],
+  "keywords": [
+    "artificial intelligence",
+    "physics-informed neural networks",
+    "cosmology",
+    "quantum computing",
+    "machine learning",
+    "theoretical physics",
+    "AGI",
+    "wormhole physics",
+    "spacetime modeling"
+  ]
+}
