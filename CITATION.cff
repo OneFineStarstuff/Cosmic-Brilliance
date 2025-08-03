@@ -1,0 +1,20 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "Cosmic-Brilliance"
+abstract: "A collection of advanced AI and physics-informed neural network implementations exploring cosmic phenomena, AGI development, and theoretical physics applications."
+authors:
+  - family-names: "OneFineStarstuff"
+    given-names: "𝐎𝐧𝐞 𝐅𝐢𝐧𝐞 𝐒𝐭𝐚𝐫𝐬𝐭𝐮𝐟𝐟"
+repository-code: "https://github.com/OneFineStarstuff/Cosmic-Brilliance"
+url: "https://github.com/OneFineStarstuff/Cosmic-Brilliance"
+license: MIT
+date-released: "2024-01-01"
+version: "1.0.0"
+keywords:
+  - "artificial intelligence"
+  - "physics-informed neural networks"
+  - "cosmology"
+  - "quantum computing"
+  - "machine learning"
+  - "theoretical physics"
