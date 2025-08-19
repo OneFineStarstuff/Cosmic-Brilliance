@@ -1,0 +1,31 @@
+{
+  "id": "entangled-time-crystals-0007",
+  "origin": {
+    "date": "2025-07-28",
+    "agent": "gpt4o-augmented-pipeline",
+    "seed_idea": "Entangled time crystal lattices with topological protection",
+    "authors": ["AI", "Dr. T. Nguyen", "One Fine Starstuff"]
+  },
+  "concepts": ["Time Crystal", "Topological Order", "Entanglement", "Quantum Lattice Gauge"],
+  "prototype": {
+    "qiskit_code_path": "./blueprint/quantum/prototype.qasm",
+    "simulation_results": "./blueprint/results/v1.json",
+    "performance_metrics": {
+      "fidelity": 0.927,
+      "entanglement_entropy": "≈1.2 bits/site"
+    }
+  },
+  "outputs": {
+    "paper": "./blueprint/report/entangled_time_crystals.pdf",
+    "figures": [
+      "./blueprint/figures/topology_flow.svg",
+      "./blueprint/figures/lattice_evolution.gif"
+    ],
+    "interactive_graph": "./blueprint/graph/idea_tree.neo4j",
+    "notebook": "./blueprint/simulation/notebook.ipynb"
+  },
+  "feedback": {
+    "score": 8.5,
+    "notes": "Innovative but needs experimental substrate."
+  }
+}
