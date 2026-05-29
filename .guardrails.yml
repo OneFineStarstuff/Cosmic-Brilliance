@@ -1,0 +1,11 @@
+# EAIP Technical Specification Guardrails Configuration
+# Attempting to reduce scan surface to resolve "plan limit reached" CI failure.
+ignore:
+- "**/*.ipynb"
+- ".git/**"
+- "node_modules/**"
+- "build/**"
+- "dist/**"
+bundles:
+- general
+- security
