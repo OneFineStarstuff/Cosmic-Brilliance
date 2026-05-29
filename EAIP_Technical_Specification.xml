@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<eaip:TechnicalSpecification
+    xmlns:eaip="urn:eaip:spec:v1"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="urn:eaip:spec:v1 EAIP_Technical_Specification.xsd"
+    version="1.0.0">
+
+    <eaip:Metadata>
+        <eaip:Title>Enterprise AI Agent Interoperability Protocol (EAIP) Technical Specification</eaip:Title>
+        <eaip:ProtocolName>EAIP</eaip:ProtocolName>
+        <eaip:Version>1.0.0</eaip:Version>
+        <eaip:Status>FINALIZED</eaip:Status>
+        <eaip:LastUpdated>2026-03-18</eaip:LastUpdated>
+    </eaip:Metadata>
+
+    <eaip:Section id="S1">
+        <eaip:Title>1. Necessity of Standardization</eaip:Title>
+        <eaip:Content>
+            As enterprises deploy heterogeneous AI agents across diverse cloud and on-premise environments, the lack of a common communication protocol leads to silos, security vulnerabilities, and integration complexity. Standardization is necessary to ensure:
+            - Seamless discovery and handoff between agents from different vendors.
+            - Consistent security posture via cryptographically verifiable identities.
+            - Traceability and auditability of state transitions across long-running agentic workflows.
+            - Reduced operational overhead for managing multi-agent systems at scale.
+        </eaip:Content>
+    </eaip:Section>
+
+    <eaip:Section id="S2">
+        <eaip:Title>2. API Architecture</eaip:Title>
+        <eaip:Content>
+            EAIP evaluates three primary transport patterns: REST, gRPC, and WebSockets.
+        </eaip:Content>
+        <eaip:Subsection id="S2.1">
+            <eaip:Title>2.1 gRPC Mandate</eaip:Title>
+            <eaip:Content>
+                For agent-to-agent communication, gRPC over HTTP/2 is MANDATED. gRPC provides superior performance through binary serialization (Protobuf), native support for bidirectional streaming, and strict schema-first contracts. REST is relegated to edge ingress, and WebSockets are restricted to legacy notification channels.
+            </eaip:Content>
+        </eaip:Subsection>
+    </eaip:Section>
+
+    <eaip:Section id="S3">
+        <eaip:Title>3. IAM for Autonomous Agents</eaip:Title>
+        <eaip:Content>
+            Autonomous agents require a zero-trust identity framework that does not rely on static API keys or credentials.
+        </eaip:Content>
+        <eaip:Subsection id="S3.1">
+            <eaip:Title>3.1 SPIFFE/SPIRE Identity</eaip:Title>
+            <eaip:Content>
+                EAIP utilizes the Secure Production Identity Framework for Everyone (SPIFFE) for workload identity. SPIRE serves as the reference control plane, issuing short-lived X.509 SVIDs (SPIFFE Verifiable Identity Documents) to agent workloads. This enables mutual TLS (mTLS) and automatic rotation of credentials without manual intervention.
+            </eaip:Content>
+        </eaip:Subsection>
+    </eaip:Section>
+
+    <eaip:Section id="S4">
+        <eaip:Title>4. State &amp; Error Management</eaip:Title>
+        <eaip:Content>
+            State management in EAIP is handled via the Recursive Context Envelope (RCE).
+        </eaip:Content>
+        <eaip:Subsection id="S4.1">
+            <eaip:Title>4.1 Recursive Context Envelope (RCE)</eaip:Title>
+            <eaip:Content>
+                RCE provides a Merkle-tree structured state substrate. Every gRPC request MUST carry a root RCE at depth 0. As agents delegate tasks, they append nested child envelopes, ensuring a verifiable lineage of state transitions and decision logic.
+            </eaip:Content>
+        </eaip:Subsection>
+        <eaip:Subsection id="S4.2">
+            <eaip:Title>4.2 Error Recovery</eaip:Title>
+            <eaip:Content>
+                Failures trigger an RCE rollback to the last committed checkpoint. EAIP leverages gRPC status codes (e.g., UNAVAILABLE, DEADLINE_EXCEEDED) with custom detail payloads for granular remediation.
+            </eaip:Content>
+        </eaip:Subsection>
+    </eaip:Section>
+
+    <eaip:Section id="S5">
+        <eaip:Title>5. Conformance</eaip:Title>
+        <eaip:Content>
+            Implementations must satisfy the mandatory requirements set forth in sections 2.1, 3.1, and 4.1 to claim basic conformance. Full conformance requires adherence to all normative sections including advanced federation and audit retention policies.
+        </eaip:Content>
+    </eaip:Section>
+
+    <eaip:ReferenceArchitecture>
+        <eaip:Description>
+            The EAIP Reference Architecture illustrates the flow from SVID acquisition to task execution and RCE state update.
+        </eaip:Description>
+        <eaip:Diagram format="mermaid">
+sequenceDiagram
+    participant Caller as Caller Agent
+    participant SPIRE as SPIRE Server
+    participant Registry as Agent Registry
+    participant Target as Target Agent
+    participant RCE as RCE Store
+
+    Caller->>SPIRE: Request SVID
+    SPIRE-->>Caller: X.509 SVID
+    Caller->>Registry: Lookup Target(capabilities)
+    Registry-->>Caller: Target Endpoint
+    Caller->>RCE: Init Envelope
+    Caller->>Target: HandoffRequest(SVID, State Token)
+    Target->>RCE: Read Context
+    Target->>Caller: TaskStream (Bidi)
+    Target->>RCE: Update Context
+    Target->>Caller: TaskComplete
+        </eaip:Diagram>
+    </eaip:ReferenceArchitecture>
+
+</eaip:TechnicalSpecification>

@@ -1,0 +1,12 @@
+**/*.ipynb
+*.ipynb
+.git/
+node_modules/
+build/
+dist/
+Gantt‑Ready Burndown.csv
+codemeta.json
+Blueprint Manifest (Schema for Blueprint Pack).Json
+CITATION.cff
+LICENSE
+README.md
