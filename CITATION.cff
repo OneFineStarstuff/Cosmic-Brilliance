@@ -4,6 +4,16 @@ authors:
   - family-names: 𝐎𝐧𝐞 𝐅𝐢𝐧𝐞 𝐒𝐭𝐚𝐫𝐬𝐭𝐮𝐟𝐟
     given-names: OneFineStarstuff
     orcid: https://orcid.org/0009-0003-9861-5125
-title: "Cosmic Brilliance"
-version: 1.0.0
+title: "Cosmic Brilliance: A Unified Research Framework for AGI and Quantum-Entangled AI"
+version: 1.1.0
+doi: 10.5281/zenodo.14652254
 date-released: 2025-01-13
+url: "https://github.com/OneFineStarstuff/Cosmic-Brilliance"
+keywords:
+  - AGI
+  - "Quantum Neural Networks"
+  - PINNs
+  - "Enterprise AI"
+  - EAIP
+  - "Theoretical Physics"
+license: MIT
