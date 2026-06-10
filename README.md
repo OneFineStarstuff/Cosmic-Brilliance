@@ -1,43 +1,97 @@
-# Cosmic Brilliance 🌌
+# Omni-Sentinel Cognitive Execution Environment 🌌
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.14652254.svg)](https://doi.org/10.5281/zenodo.14652254)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Security Policy](https://img.shields.io/badge/Security-Policy-blue.svg)](SECURITY.md)
 
-**Cosmic Brilliance** is a cutting-edge research repository dedicated to the pursuit of Artificial General Intelligence (AGI), Quantum-Entangled Neural Networks, and Physics-Informed Neural Networks (PINNs). This project integrates advanced theoretical physics with state-of-the-art AI architectures to explore the frontiers of cognition and computation.
+Omni-Sentinel is a high-assurance governance and execution framework designed for cognitive agents and AI systems. It provides a multi-layered defense-in-depth architecture (The G-Stack) anchored in hardware trust, Bayesian risk monitoring, and post-quantum cryptographic (PQC) audit trails.
 
-## 🚀 Key Research Areas
+## 🚀 Overview
 
-### 1. Enterprise AI Agent Interoperability Protocol (EAIP)
-Developing a standardized protocol for autonomous AI agents to communicate, handoff tasks, and maintain verifiable state across heterogeneous environments.
-- **Mandate:** gRPC over HTTP/2 for high-performance agent-to-agent synchronization.
-- **Identity:** SPIFFE/SPIRE based zero-trust identity framework.
-- **State:** Recursive Context Envelopes (RCE) using Merkle-tree structured state substrates.
+The system is built to ensure that cognitive tasks are executed within safe, measurable, and immutable boundaries. It integrates advanced hardware attestation with real-time risk scoring to mitigate alignment drift and systemic risks.
 
-### 2. Physics-Informed Neural Networks (PINNs)
-Simulating complex physical phenomena, such as wormhole stability and time dilation, by embedding differential equations directly into the neural network's loss function.
+## 🏗️ Architecture (The G-Stack)
 
-### 3. Quantum-Entangled Neural Networks
-Exploring the intersection of quantum computing and machine learning, utilizing Qiskit and TensorFlow Quantum for entangled state simulations and quantum kernel methods.
+1.  **Hardware Root of Trust**: TEE/TPM with PCR_MATCH enforcement. Verifies the integrity of the execution environment.
+2.  **Cognitive Control Plane**: Bayesian G-SRI (Global Systemic Risk Index) scoring engine regulating model execution based on real-time telemetry.
+3.  **Immutable Evidence Store**: PQC-signed (ML-DSA / CRYSTALS-Dilithium) WORM (Write-Once-Read-Many) audit logs stored in an immutable substrate.
 
-### 4. Higher-Dimensional Cognition
-Architectures designed to process and reason in multi-dimensional latent spaces, moving beyond traditional 3D/4D constraints.
+## 📁 Project Structure
 
-## 🛠 Project Structure
+- `src/governance_engine/`: Core Bayesian scoring and ZKML fairness verification logic.
+- `src/infrastructure/`: Hardware attestation and PQC-signed immutable logging.
+- `REPORTS/`: Comprehensive regulatory gap analysis and compliance reports.
+- `tests/`: Automated test suite for validating governance logic and fairness proofs.
 
-- `EAIP_Technical_Specification.xml`: The core normative specification for the EAIP protocol.
-- `AGI_Prototype_Implementation_(PyTorch).ipynb`: Implementation of the AGI core.
-- `Quantum_Entangled_Neural_Networks.ipynb`: Quantum research and simulations.
-- `Complete_Enhanced_Unified_AI_System.ipynb`: The flagship unified model integrating PINNs and AGI reasoning.
+## 🛠️ Getting Started
 
-## 📦 Archiving & Citation
+### Prerequisites
 
-This project is archived on Zenodo. To create a new release:
-1. Ensure `codemeta.json` and `CITATION.cff` are updated with the latest version info.
-2. Tag a new release in GitHub.
-3. Zenodo will automatically capture the release and assign a DOI.
+- Python 3.10+
+- NumPy, SciPy (for Bayesian engine)
+- `oqs-python` / `liboqs` (for ML-DSA signing)
+- `pytest` (for testing)
 
-Please cite this work using the metadata provided in `CITATION.cff`.
+### Installation
 
-## 📄 License
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/OneFineStarstuff/Cosmic-Brilliance.git
+   cd Cosmic-Brilliance
+   ```
 
-Distributed under the MIT License. See `LICENSE` for more information.
+2. Install dependencies:
+   ```bash
+   pip install numpy scipy oqs-python pytest
+   ```
+
+### Usage
+
+#### G-SRI Scoring
+```python
+from src.governance_engine.gsri_scoring_engine import GSRIScoringEngine
+
+engine = GSRIScoringEngine()
+telemetry = {"alignment_drift": 0.1, "compute_anomaly": 0.05}
+gsri = engine.calculate_gsri(telemetry)
+print(f"G-SRI: {gsri}")
+```
+
+#### PQC-WORM Logging
+```python
+from src.infrastructure.pqc_worm_logger import PQCWormLogger
+
+logger = PQCWormLogger()
+logger.commit_batch("batch_001", [{"event": "GSRI_CHECK", "value": 15.5}])
+```
+
+## 🧪 Testing
+
+Run the test suite:
+
+```bash
+python3 -m pytest tests/test_governance.py
+```
+
+## 📜 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🤝 Contributing
+
+Please see [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines on how to contribute. Security-sensitive changes to cryptographic modules require mandatory peer review.
+
+## 📝 Citation
+
+If you use this software in your research, please cite it as follows:
+
+```bibtex
+@software{omni_sentinel_2026,
+  author = {One Fine Starstuff},
+  title = {Omni-Sentinel Cognitive Execution Environment},
+  version = {1.1.0},
+  year = {2026},
+  url = {https://github.com/OneFineStarstuff/Cosmic-Brilliance},
+  doi = {10.5281/zenodo.14652254}
+}
+```
