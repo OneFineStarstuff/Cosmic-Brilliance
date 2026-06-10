@@ -1,18 +1,21 @@
 {
-  "@context": "https://doi.org/10.5063/schema/codemeta-2.0",
+  "@context": "https://w3id.org/codemeta/3.0",
   "@type": "SoftwareSourceCode",
-  "name": "Cosmic Brilliance",
-  "description": "A cutting-edge research repository for AGI, Quantum-Entangled Neural Networks, and Physics-Informed Neural Networks (PINNs). Includes the Enterprise AI Agent Interoperability Protocol (EAIP) specification.",
+  "name": "Omni-Sentinel Cognitive Execution Environment",
+  "description": "High-assurance governance and execution framework for cognitive agents and AI systems, utilizing hardware trust and PQC audit trails.",
   "identifier": "https://doi.org/10.5281/zenodo.14652254",
   "license": "https://spdx.org/licenses/MIT",
   "version": "1.1.0",
   "codeRepository": "https://github.com/OneFineStarstuff/Cosmic-Brilliance",
   "keywords": [
     "AGI",
-    "Quantum Neural Networks",
-    "PINNs",
-    "EAIP",
-    "AI Interoperability"
+    "Post-Quantum Cryptography",
+    "ML-DSA",
+    "Bayesian Risk Scoring",
+    "Hardware Attestation",
+    "TPM 2.0",
+    "ZKML",
+    "EAIP"
   ],
   "author": [
     {
@@ -21,5 +24,13 @@
       "familyName": "𝐎𝐧𝐞 𝐅𝐢𝐧𝐞 𝐒𝐭𝐚𝐫𝐬𝐭𝐮𝐟𝐟",
       "orcid": "https://orcid.org/0009-0003-9861-5125"
     }
-  ]
+  ],
+  "softwareRequirements": [
+    "numpy",
+    "scipy",
+    "oqs-python",
+    "liboqs"
+  ],
+  "runtimePlatform": "Python 3.10+",
+  "developmentStatus": "https://www.repostatus.org/#active"
 }

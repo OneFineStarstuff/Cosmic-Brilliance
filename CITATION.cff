@@ -1,19 +1,22 @@
 cff-version: 1.2.0
 message: "If you use this software, please cite it as below."
 authors:
-  - family-names: 𝐎𝐧𝐞 𝐅𝐢𝐧𝐞 𝐒𝐭𝐚𝐫𝐬𝐭𝐮𝐟𝐟
-    given-names: OneFineStarstuff
-    orcid: https://orcid.org/0009-0003-9861-5125
-title: "Cosmic Brilliance: A Unified Research Framework for AGI and Quantum-Entangled AI"
+  - family-names: "𝐒𝐭𝐚𝐫𝐬𝐭𝐮𝐟𝐟"
+    given-names: "𝐎𝐧𝐞 𝐅𝐢𝐧𝐞"
+    orcid: "https://orcid.org/0009-0003-9861-5125"
+title: "Omni-Sentinel Cognitive Execution Environment"
 version: 1.1.0
 doi: 10.5281/zenodo.14652254
-date-released: 2025-01-13
+date-released: 2026-06-01
 url: "https://github.com/OneFineStarstuff/Cosmic-Brilliance"
-keywords:
-  - AGI
-  - "Quantum Neural Networks"
-  - PINNs
-  - "Enterprise AI"
-  - EAIP
-  - "Theoretical Physics"
+repository-code: "https://github.com/OneFineStarstuff/Cosmic-Brilliance"
 license: MIT
+type: software
+keywords:
+  - "AGI"
+  - "Post-Quantum Cryptography"
+  - "ML-DSA"
+  - "Bayesian Risk Scoring"
+  - "Hardware Attestation"
+  - "TPM 2.0"
+  - "ZKML"
