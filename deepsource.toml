@@ -1,0 +1,28 @@
+version = 1
+
+exclude_patterns = [
+  ".git/**",
+  "**/__pycache__/**",
+  ".github/**",
+  ".guardrails/**",
+  ".memory/**",
+  "REPORTS/**"
+]
+
+test_patterns = [
+  "tests/**",
+  "test_*.ipynb",
+  "tests_*.ipynb"
+]
+
+[[analyzers]]
+name = "python"
+enabled = true
+
+  [analyzers.meta]
+  runtime_version = "3.x.x"
+  max_line_length = 88
+
+[[analyzers]]
+name = "secrets"
+enabled = true
