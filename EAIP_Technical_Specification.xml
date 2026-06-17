@@ -3,14 +3,14 @@
     xmlns:eaip="urn:eaip:spec:v1"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="urn:eaip:spec:v1 EAIP_Technical_Specification.xsd"
-    version="1.0.0">
+    version="2.4.1">
 
     <eaip:Metadata>
         <eaip:Title>Enterprise AI Agent Interoperability Protocol (EAIP) Technical Specification</eaip:Title>
         <eaip:ProtocolName>EAIP</eaip:ProtocolName>
-        <eaip:Version>1.0.0</eaip:Version>
-        <eaip:Status>FINALIZED</eaip:Status>
-        <eaip:LastUpdated>2026-03-18</eaip:LastUpdated>
+        <eaip:Version>2.4.1</eaip:Version>
+        <eaip:Status>REMEDIATED</eaip:Status>
+        <eaip:LastUpdated>2026-06-17</eaip:LastUpdated>
     </eaip:Metadata>
 
     <eaip:Section id="S1">
@@ -75,6 +75,38 @@
             Implementations must satisfy the mandatory requirements set forth in sections 2.1, 3.1, and 4.1 to claim basic conformance. Full conformance requires adherence to all normative sections including advanced federation and audit retention policies.
         </eaip:Content>
     </eaip:Section>
+
+    <eaip:GovernanceExtension>
+        <eaip:Section title="7.3 Ethics Maturity Roadmap">
+            <eaip:MaturityRoadmap>
+                <eaip:TargetMaturityScore>3.0</eaip:TargetMaturityScore>
+                <eaip:TargetDate>2026-Q4</eaip:TargetDate>
+                <eaip:MaturityScale version="2.1" publisher="AIEMM" uri="https://example.com/aiemm-v2.1">AI Ethics Maturity Model v2.1 (Scale 0-5)</eaip:MaturityScale>
+                <eaip:ComplianceFrameworks>
+                    <eaip:Framework>MAS FEAT 2019</eaip:Framework>
+                    <eaip:Framework>HKMA AI Ethics Circular 2019</eaip:Framework>
+                </eaip:ComplianceFrameworks>
+                <eaip:Milestone>
+                    <eaip:Gate>Initial Governance Baseline</eaip:Gate>
+                    <eaip:AcceptanceCriteria>Baseline risk scores established for all agents.</eaip:AcceptanceCriteria>
+                    <eaip:TargetDate>2026-03-31</eaip:TargetDate>
+                    <eaip:Status>COMPLETED</eaip:Status>
+                </eaip:Milestone>
+                <eaip:Milestone>
+                    <eaip:Gate>ZK-Fairness (Demographic Parity) Verification</eaip:Gate>
+                    <eaip:AcceptanceCriteria>Achieve Demographic Parity gap ≤ 0.05 across all protected attributes.</eaip:AcceptanceCriteria>
+                    <eaip:TargetDate>2026-06-30</eaip:TargetDate>
+                    <eaip:Status>IN_PROGRESS</eaip:Status>
+                </eaip:Milestone>
+                <eaip:Milestone>
+                    <eaip:Gate>ASA Interpretability (CAE) Layer Integration</eaip:Gate>
+                    <eaip:AcceptanceCriteria>100% of agentic decisions traceable via SHA-256 signed CAEs.</eaip:AcceptanceCriteria>
+                    <eaip:TargetDate>2026-09-30</eaip:TargetDate>
+                    <eaip:Status>PLANNED</eaip:Status>
+                </eaip:Milestone>
+            </eaip:MaturityRoadmap>
+        </eaip:Section>
+    </eaip:GovernanceExtension>
 
     <eaip:ReferenceArchitecture>
         <eaip:Description>
