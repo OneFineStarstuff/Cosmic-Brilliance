@@ -9,6 +9,7 @@
             <xs:sequence>
                 <xs:element name="Metadata" type="eaip:MetadataType"/>
                 <xs:element name="Section" type="eaip:SectionType" minOccurs="5" maxOccurs="unbounded"/>
+                <xs:element name="GovernanceExtension" type="eaip:GovernanceExtensionType" minOccurs="0"/>
                 <xs:element name="ReferenceArchitecture" type="eaip:ArchitectureType"/>
             </xs:sequence>
             <xs:attribute name="version" type="xs:string" use="required"/>
@@ -32,6 +33,54 @@
             <xs:element name="Subsection" type="eaip:SectionType" minOccurs="0" maxOccurs="unbounded"/>
         </xs:sequence>
         <xs:attribute name="id" type="xs:ID" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="GovernanceExtensionType">
+        <xs:sequence>
+            <xs:element name="Section" type="eaip:GovernanceSectionType" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="GovernanceSectionType">
+        <xs:sequence>
+            <xs:element name="MaturityRoadmap" type="eaip:MaturityRoadmapType" minOccurs="0"/>
+        </xs:sequence>
+        <xs:attribute name="title" type="xs:string" use="required"/>
+    </xs:complexType>
+
+    <xs:complexType name="MaturityRoadmapType">
+        <xs:sequence>
+            <xs:element name="TargetMaturityScore" type="xs:decimal"/>
+            <xs:element name="TargetDate" type="xs:string"/>
+            <xs:element name="MaturityScale" type="eaip:MaturityScaleType" minOccurs="0"/>
+            <xs:element name="ComplianceFrameworks" type="eaip:FrameworksType"/>
+            <xs:element name="Milestone" type="eaip:MilestoneType" minOccurs="0" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MaturityScaleType">
+        <xs:simpleContent>
+            <xs:extension base="xs:string">
+                <xs:attribute name="version" type="xs:string"/>
+                <xs:attribute name="publisher" type="xs:string"/>
+                <xs:attribute name="uri" type="xs:anyURI"/>
+            </xs:extension>
+        </xs:simpleContent>
+    </xs:complexType>
+
+    <xs:complexType name="FrameworksType">
+        <xs:sequence>
+            <xs:element name="Framework" type="xs:string" maxOccurs="unbounded"/>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="MilestoneType">
+        <xs:sequence>
+            <xs:element name="Gate" type="xs:string"/>
+            <xs:element name="AcceptanceCriteria" type="xs:string" minOccurs="0"/>
+            <xs:element name="TargetDate" type="xs:date"/>
+            <xs:element name="Status" type="xs:string"/>
+        </xs:sequence>
     </xs:complexType>
 
     <xs:complexType name="ArchitectureType">

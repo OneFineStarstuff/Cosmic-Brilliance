@@ -12,3 +12,9 @@ The project had a "ghost work" issue where major architectural components and re
 ## Repository Procedures
 - **Metadata Hardening**: Followed a thorough audit against v0/Next.js/Zenodo requirements to ensure all citation, metadata, and community files are professional and accurate.
 - **Guardrails CI**: Updated `.guardrails/ignore` to exclude new directories and large Jupyter notebooks from plan limit analysis.
+
+## AXI-8 Remediation Learnings
+- **Cryptographic Integrity**: Replaced insecure Base64 (btoa) encoding with SHA-256 for tamper-evident Contextual Attribution Envelopes (CAE).
+- **Statistical Fairness**: Implemented minimum-n guards and O(n²) pairwise delta checks for Demographic Parity to ensure regulatory compliance with MAS FEAT.
+- **Protocol Standardization**: Bumped EAIP to v2.4.1, adding a structured Ethics Maturity Roadmap with quarterly milestones and measurable acceptance criteria.
+- **Risk Observability**: Enhanced GSRI scoring with uncertainty bands and as-of timestamps to meet HKMA ethics transparency requirements.

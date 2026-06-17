@@ -1,5 +1,6 @@
 import numpy as np
-from typing import Dict, List, Optional
+from typing import Dict, List, Optional, Any
+import time
 
 class GSRIScoringEngine:
     """
@@ -37,6 +38,24 @@ class GSRIScoringEngine:
         gsri_score = expected_risk * 100.0
         return float(gsri_score)
 
+    def get_risk_metrics(self, telemetry: Dict[str, float]) -> Dict[str, Any]:
+        """
+        Provides comprehensive risk metrics including point estimate and uncertainty.
+        """
+        score = self.calculate_gsri(telemetry)
+
+        # Simple simulation of variance/uncertainty for the Beta distribution
+        # Variance = (alpha * beta) / ((alpha + beta)^2 * (alpha + beta + 1))
+        variance = (self.alpha * self.beta) / ((self.alpha + self.beta)**2 * (self.alpha + self.beta + 1))
+        uncertainty = np.sqrt(variance) * 100.0
+
+        return {
+            "gsri_score": score,
+            "uncertainty_band": uncertainty,
+            "posture": self.evaluate_posture(score),
+            "as_of": time.strftime("%Y-%m-%dT%H:%M:%SZ", time.gmtime())
+        }
+
     def evaluate_posture(self, score: float) -> str:
         """Determines the operational status based on the G-SRI score."""
         if score < 25.0:
@@ -53,5 +72,5 @@ class GSRIScoringEngine:
 if __name__ == "__main__":
     engine = GSRIScoringEngine()
     test_telemetry = {"alignment_drift": 0.15, "compute_anomaly": 0.05}
-    score = engine.calculate_gsri(test_telemetry)
-    print(f"G-SRI Score: {score:.2f} - Status: {engine.evaluate_posture(score)}")
+    metrics = engine.get_risk_metrics(test_telemetry)
+    print(f"G-SRI Metrics: {metrics}")
